@@ -1,5 +1,5 @@
 const { client } = require("./dbConnect");
 
 const allJobPostCollections = client.db("jobSafari").collection("jobPosts");
-
-module.exports = { allJobPostCollections };
+const testimonialCollections = client.db("jobSafari").collection("testimonial");
+module.exports = { allJobPostCollections, testimonialCollections };
