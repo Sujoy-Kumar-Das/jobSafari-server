@@ -18,7 +18,7 @@ const getAllJobPost = require("./src/router/getRouters/getAllJObPost");
 const getTestimonial = require("./src/router/getRouters/getTestimonial");
 const getJobDetail = require("./src/router/getRouters/getJobDetailRouter");
 const getPeopleControler = require("./src/router/getRouters/getPeoplesRoute");
-
+const getUserData = require("./src/router/getRouters/getUserDataRouter");
 // post routers path
 const storeUser = require("./src/router/postRouters/storeUserRouter");
 const postJob = require("./src/router/postRouters/postJobRouter");
@@ -28,6 +28,7 @@ app.use(getAllJobPost);
 app.use(getTestimonial);
 app.use(getJobDetail);
 app.use(getPeopleControler);
+app.use(getUserData);
 
 // post routes
 app.use(storeUser);

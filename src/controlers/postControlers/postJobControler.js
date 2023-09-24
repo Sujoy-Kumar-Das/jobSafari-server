@@ -17,7 +17,6 @@ const postJobControler = async (req, res) => {
       });
     }
   } catch (error) {
-    console.log(error)
     res.send({
       success: false,
       message: "Sever error.Please try again later.",
