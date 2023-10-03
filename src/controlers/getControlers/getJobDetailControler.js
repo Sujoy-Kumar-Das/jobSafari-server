@@ -5,8 +5,8 @@ const getJobDetailControler = async (req, res) => {
   try {
     const id = req.params.id;
     const query = { _id: new ObjectId(id) };
-    const result = await allJobPostCollections.find(query).toArray();
-    if (!result.length) {
+    const result = await allJobPostCollections.findOne(query);
+    if (!result) {
       return res.send({
         success: false,
         message: "This job isn't found.",

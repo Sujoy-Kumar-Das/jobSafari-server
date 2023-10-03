@@ -25,6 +25,9 @@ const getAllUsers = require("./src/router/getRouters/getAllUsersRouter");
 const storeUser = require("./src/router/postRouters/storeUserRouter");
 const postJob = require("./src/router/postRouters/postJobRouter");
 const postResume = require("./src/router/postRouters/postMyResume");
+const postJobApplication = require("./src/router/postRouters/postJobApplicationRouter");
+// make admin routers path
+const makeAdmin = require("./src/router/postRouters/makeAdminRouter");
 // delete routers path
 const deleteUser = require("./src/router/deleteRouters/deleteUserRouter");
 
@@ -42,11 +45,11 @@ app.use(getAllUsers);
 app.use(storeUser);
 app.use(postJob);
 app.use(postResume);
-
+app.use(postJobApplication);
+// pathc router
+app.use(makeAdmin);
 // delete routes
 app.use(deleteUser);
-
-
 
 app.listen(PORT, () => {
   console.log("server is running");
