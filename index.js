@@ -21,6 +21,7 @@ const getPeopleControler = require("./src/router/getRouters/getPeoplesRoute");
 const getUserData = require("./src/router/getRouters/getUserDataRouter");
 const myResume = require("./src/router/getRouters/getMyResume");
 const getAllUsers = require("./src/router/getRouters/getAllUsersRouter");
+const getMyJobApplications = require("./src/router/getRouters/getMyJobApplications");
 // post routers path
 const storeUser = require("./src/router/postRouters/storeUserRouter");
 const postJob = require("./src/router/postRouters/postJobRouter");
@@ -40,6 +41,7 @@ app.use(getPeopleControler);
 app.use(getUserData);
 app.use(myResume);
 app.use(getAllUsers);
+app.use(getMyJobApplications);
 
 // post routes
 app.use(storeUser);
