@@ -4,14 +4,13 @@ const {
   allJobPostCollections,
 } = require("../../models/collections");
 
-const postJobApplicationControler = async (req, res) => {
+const storeJobApplicationControler = async (req, res) => {
   try {
     const body = req.body;
     const { jobId, userEmail } = body;
-    const query = {_id: new ObjectId(jobId)}
+    const query = { _id: new ObjectId(jobId) };
     const emailQuery = { userEmail: userEmail };
     const idQuery = { jobId: jobId };
-
     // is job available now
     const jobExists = await allJobPostCollections.findOne(query);
 
@@ -55,4 +54,4 @@ const postJobApplicationControler = async (req, res) => {
   }
 };
 
-module.exports = postJobApplicationControler;
+module.exports = storeJobApplicationControler;

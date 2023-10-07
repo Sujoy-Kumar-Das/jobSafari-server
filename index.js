@@ -25,7 +25,7 @@ const getAllUsers = require("./src/router/getRouters/getAllUsersRouter");
 const storeUser = require("./src/router/postRouters/storeUserRouter");
 const postJob = require("./src/router/postRouters/postJobRouter");
 const postResume = require("./src/router/postRouters/postMyResume");
-const postJobApplication = require("./src/router/postRouters/postJobApplicationRouter");
+const postJobApplicationRouter = require("./src/router/postRouters/storeJobApplicationRouter");
 // make admin routers path
 const makeAdmin = require("./src/router/postRouters/makeAdminRouter");
 // delete routers path
@@ -45,7 +45,7 @@ app.use(getAllUsers);
 app.use(storeUser);
 app.use(postJob);
 app.use(postResume);
-app.use(postJobApplication);
+app.use(postJobApplicationRouter);
 // pathc router
 app.use(makeAdmin);
 // delete routes
