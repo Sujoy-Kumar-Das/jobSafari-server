@@ -4,6 +4,13 @@ const getUserDataControler = async (req, res) => {
   try {
     const { email } = req.query;
     const query = { email: email };
+    if (email !== req.decoded) {
+      return res.send({
+        success: false,
+        message:
+          "Unauthorized access.You are not a valid user for this request.",
+      });
+    }
     const result = await usersCollections.findOne(query);
     if (!result) {
       return res.send({

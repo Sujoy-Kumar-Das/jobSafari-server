@@ -5,6 +5,13 @@ const postMyResumeControler = async (req, res) => {
     const resume = req.body;
     const email = resume.email;
     const filter = { email: email };
+    if (email !== req.decoded) {
+      return res.send({
+        success: false,
+        message:
+          "Unauthorized access.You are not a valid user for edit this resume.",
+      });
+    }
 
     // Document to update or insert
     const updatedDoc = {

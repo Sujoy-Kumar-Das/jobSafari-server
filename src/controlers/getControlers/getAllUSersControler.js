@@ -3,6 +3,13 @@ const { usersCollections } = require("../../models/collections");
 const getAllUSersControler = async (req, res) => {
   try {
     const query = {};
+    if (req.query.email !== req.decoded) {
+      return res.send({
+        success: false,
+        message:
+          "Unauthorized access.You are not a valid user for view all users.",
+      });
+    }
     const result = await usersCollections.find(query).toArray();
     if (!result.length) {
       res.send({

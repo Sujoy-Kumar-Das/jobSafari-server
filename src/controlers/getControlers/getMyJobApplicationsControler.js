@@ -9,6 +9,14 @@ const getMyJobApplicationsControler = async (req, res) => {
     const { email } = req.params;
     const query = { userEmail: email }; // query for search job applications
 
+    if (email !== req.decoded) {
+      return res.send({
+        success: false,
+        message:
+          "Unauthorized access.You are not a valid user for show job applications.",
+      });
+    }
+
     const appliedJobs = await jobApplicationCollections.find(query).toArray();
 
     const allJobs = await allJobPostCollections.find({}).toArray();
@@ -18,7 +26,7 @@ const getMyJobApplicationsControler = async (req, res) => {
         new ObjectId(appliedJob.jobId).equals(job._id)
       );
     });
-    if (!myApplications) {
+    if (!myApplications.length) {
       return res.send({
         success: false,
         message: "Currently you don't have any job applications.",

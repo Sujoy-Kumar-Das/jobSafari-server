@@ -4,6 +4,13 @@ const getMyResumeControler = async (req, res) => {
   try {
     const email = req.query.email;
     const query = { email: email };
+    if (email !== req.decoded) {
+      return res.send({
+        success: false,
+        message:
+          "Unauthorized access.You are not a valid user for view this resume.",
+      });
+    }
     const result = await resumeCollections.findOne(query);
     if (!result) {
       res.send({
