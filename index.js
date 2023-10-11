@@ -50,6 +50,7 @@ const postResume = require("./src/router/postRouters/postMyResume");
 
 const postJobApplicationRouter = require("./src/router/postRouters/storeJobApplicationRouter");
 
+const postBlog = require("./src/router/postRouters/postBlogRouter");
 /*********************** make admin routers path ***********************/
 
 const makeAdmin = require("./src/router/postRouters/makeAdminRouter");
@@ -93,6 +94,8 @@ app.use(postJob);
 app.use(postResume);
 
 app.use(postJobApplicationRouter);
+
+app.use(postBlog);
 
 /********************************** pathc router **********************/
 

@@ -9,10 +9,16 @@ const jobApplicationCollections = client
   .db("jobSafari")
   .collection("jobApplications");
 
+
+const blogCollections = client
+.db("jobSafari")
+.collection("blogs");
+
 module.exports = {
   allJobPostCollections,
   testimonialCollections,
   usersCollections,
   resumeCollections,
-  jobApplicationCollections
+  jobApplicationCollections,
+  blogCollections
 };
