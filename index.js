@@ -36,6 +36,8 @@ const getAllUsers = require("./src/router/getRouters/getAllUsersRouter");
 
 const getMyJobApplications = require("./src/router/getRouters/getMyJobApplications");
 
+const getMyBlogs = require("./src/router/getRouters/getMyBlogsRouter");
+
 const getIsAdmin = require("./src/router/getRouters/isAdminRouter");
 
 const getJwtToken = require("./src/router/getRouters/getJwtToken");
@@ -80,6 +82,8 @@ app.use(myResume);
 app.use(getAllUsers);
 
 app.use(getMyJobApplications);
+
+app.use(getMyBlogs);
 
 app.use(getIsAdmin);
 

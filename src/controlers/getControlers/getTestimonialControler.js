@@ -15,7 +15,10 @@ const getTestimonialControler = async (req, res) => {
       testimonials: result,
     });
   } catch (error) {
-    console.log(error);
+    res.send({
+      success: false,
+      message: "Something went wrong while proccessing your requeste.",
+    });
   }
 };
 

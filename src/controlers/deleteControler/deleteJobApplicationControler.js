@@ -4,8 +4,8 @@ const { jobApplicationCollections } = require("../../models/collections");
 const deleteJobApplicationControler = async (req, res) => {
   try {
     const { id } = req.params;
-
     const query = { jobId: id };
+
     const isAvailable = await jobApplicationCollections.findOne(query);
     if (!isAvailable) {
       return res.send({

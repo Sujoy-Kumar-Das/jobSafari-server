@@ -46,7 +46,6 @@ const storeJobApplicationControler = async (req, res) => {
       }
     }
   } catch (error) {
-    console.log(error);
     res.send({
       success: false,
       message: "Server error please try again later.",

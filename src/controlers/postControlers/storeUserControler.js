@@ -2,9 +2,8 @@ const { usersCollections } = require("../../models/collections");
 
 const storeUserControler = async (req, res) => {
   try {
-    const email = req.query.email;
     const body = req.body;
-    const query = { email: email };
+    const query = { email: body.email };
     const updatedDoc = {
       $set: body,
     };

@@ -10,21 +10,26 @@ const isAdminControler = async (req, res) => {
         admin: false,
         message: "Unauthorized access.Your are not admin.",
       });
-    } else {
-      const result = await usersCollections.findOne(query);
-      if (!result) {
-        return res.send({
-          success: false,
-          admin: false,
-          message: "Unauthorized access.Your are not admin.",
-        });
-      } else {
-        res.send({
-          success: true,
-          admin: true,
-        });
-      }
     }
+    const user = await usersCollections.findOne(query);
+    if (!user) {
+      return res.send({
+        success: false,
+        admin: false,
+        message: "Unauthorized access.user not found.",
+      });
+    }
+    if (!user.admin) {
+      return res.send({
+        success: false,
+        admin: false,
+        message: "Unauthorized access.You are not a admin.",
+      });
+    }
+    res.send({
+      success: true,
+      admin: true,
+    });
   } catch (error) {
     res.send({
       success: false,

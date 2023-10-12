@@ -40,7 +40,10 @@ const postMyResumeControler = async (req, res) => {
       });
     }
   } catch (error) {
-    console.log(error);
+    res.send({
+      success: false,
+      message: "Something went wrong while proccessing your requeste.",
+    });
   }
 };
 
