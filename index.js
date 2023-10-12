@@ -42,6 +42,8 @@ const getMyBlogs = require("./src/router/getRouters/getMyBlogsRouter");
 
 const getBlogDetail = require("./src/router/getRouters/getBlogDetailRouter");
 
+const getMyJobPosts = require("./src/router/getRouters/getMyJobPostsRouter");
+
 const getIsAdmin = require("./src/router/getRouters/isAdminRouter");
 
 const getJwtToken = require("./src/router/getRouters/getJwtToken");
@@ -70,6 +72,8 @@ const deleteJobApplication = require("./src/router/deleteRouters/deleteJobApplic
 
 const deleteMyBlog = require("./src/router/deleteRouters/deleteMyBlogRouter");
 
+const deleteMyJobPost = require("./src/router/deleteRouters/deleteMyJobPostRouter");
+
 /************************** get routers  ************************/
 
 app.use(testRouter);
@@ -95,6 +99,8 @@ app.use(getBlogs);
 app.use(getMyBlogs);
 
 app.use(getBlogDetail);
+
+app.use(getMyJobPosts);
 
 app.use(getIsAdmin);
 
@@ -123,6 +129,8 @@ app.use(deleteUser);
 app.use(deleteJobApplication);
 
 app.use(deleteMyBlog);
+
+app.use(deleteMyJobPost);
 
 app.listen(PORT, () => {
   console.log("server is running");
