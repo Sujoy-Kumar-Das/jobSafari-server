@@ -40,6 +40,8 @@ const getBlogs = require("./src/router/getRouters/getBlogsRouter");
 
 const getMyBlogs = require("./src/router/getRouters/getMyBlogsRouter");
 
+const getBlogDetail = require("./src/router/getRouters/getBlogDetailRouter");
+
 const getIsAdmin = require("./src/router/getRouters/isAdminRouter");
 
 const getJwtToken = require("./src/router/getRouters/getJwtToken");
@@ -91,6 +93,8 @@ app.use(getMyJobApplications);
 app.use(getBlogs);
 
 app.use(getMyBlogs);
+
+app.use(getBlogDetail);
 
 app.use(getIsAdmin);
 
