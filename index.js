@@ -36,6 +36,8 @@ const getAllUsers = require("./src/router/getRouters/getAllUsersRouter");
 
 const getMyJobApplications = require("./src/router/getRouters/getMyJobApplications");
 
+const getBlogs = require("./src/router/getRouters/getBlogsRouter");
+
 const getMyBlogs = require("./src/router/getRouters/getMyBlogsRouter");
 
 const getIsAdmin = require("./src/router/getRouters/isAdminRouter");
@@ -85,6 +87,8 @@ app.use(myResume);
 app.use(getAllUsers);
 
 app.use(getMyJobApplications);
+
+app.use(getBlogs);
 
 app.use(getMyBlogs);
 
