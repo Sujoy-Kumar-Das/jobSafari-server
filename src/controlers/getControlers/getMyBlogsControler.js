@@ -5,6 +5,8 @@ const getMyBlogsControler = async (req, res) => {
     const { email } = req.query;
     const query = { email: email };
 
+    // verify jwt with email address
+
     if (email !== req.decoded) {
       return res.send({
         success: false,

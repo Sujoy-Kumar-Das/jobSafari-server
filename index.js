@@ -53,6 +53,7 @@ const postResume = require("./src/router/postRouters/postMyResume");
 const postJobApplicationRouter = require("./src/router/postRouters/storeJobApplicationRouter");
 
 const postBlog = require("./src/router/postRouters/postBlogRouter");
+
 /*********************** make admin routers path ***********************/
 
 const makeAdmin = require("./src/router/postRouters/makeAdminRouter");
@@ -62,6 +63,8 @@ const makeAdmin = require("./src/router/postRouters/makeAdminRouter");
 const deleteUser = require("./src/router/deleteRouters/deleteUserRouter");
 
 const deleteJobApplication = require("./src/router/deleteRouters/deleteJobApplicationRouter");
+
+const deleteMyBlog = require("./src/router/deleteRouters/deleteMyBlogRouter");
 
 /************************** get routers  ************************/
 
@@ -110,6 +113,8 @@ app.use(makeAdmin);
 app.use(deleteUser);
 
 app.use(deleteJobApplication);
+
+app.use(deleteMyBlog);
 
 app.listen(PORT, () => {
   console.log("server is running");

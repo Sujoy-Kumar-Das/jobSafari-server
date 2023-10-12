@@ -2,7 +2,7 @@ const { usersCollections } = require("../models/collections");
 
 const isAdmin = async (req, res, next) => {
   try {
-    const email = req.query.email;
+    const email = req.decoded;
     if (!email) {
       return res.send({
         success: false,

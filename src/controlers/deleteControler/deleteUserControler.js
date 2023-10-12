@@ -8,7 +8,9 @@ const deleteUserControler = async (req, res) => {
   try {
     const { id } = req.params;
     const query = { _id: new ObjectId(id) };
+
     const user = await usersCollections.findOne(query);
+
     if (!user) {
       return res.send({
         success: false,
