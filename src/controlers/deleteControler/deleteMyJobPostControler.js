@@ -19,8 +19,7 @@ const deleteMyJobPostControler = async (req, res) => {
     if (jobPost.email !== req.decoded) {
       return res.send({
         success: false,
-        message:
-          "Unauthorized access.You are not a valid user for delete this job post.",
+        message: "Unauthorized access.You are not a valid user for deletation.",
       });
     }
 

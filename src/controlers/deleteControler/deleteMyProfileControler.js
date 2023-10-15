@@ -4,35 +4,34 @@ const {
   allJobPostCollections,
 } = require("../../models/collections");
 
-const deleteUserControler = async (req, res) => {
+const deleteMyProfileControler = async (req, res) => {
   try {
-    const id = req.params.id;
-    const email = req.query.email;
+    const { id } = req.params;
     const query = { _id: new ObjectId(id) };
+
     const user = await usersCollections.findOne(query);
 
-    console.log(req.decoded);
-    // verify jwt email
-    if (email !== req.decoded) {
-      return res.send({
-        success: false,
-        message:
-          "Unauthorized access.You are not a valid user for deletation.",
-      });
-    }
     if (!user) {
       return res.send({
         success: false,
-        message: "User already deleted.",
+        message: "User Allready deleted.",
       });
     }
 
-    // delete users all job posts
-    await allJobPostCollections.deleteMany({
-      email: user.email,
-    });
+    // verify jwt email
+    if (user.email !== req.decoded) {
+      return res.send({
+        success: false,
+        message:
+          "Unauthorized access.You are not a valid user for delete this job post.",
+      });
+    }
 
-    // delete user
+    // delete users all job posts by email
+    const userEmailQuery = { email: user.email };
+    await allJobPostCollections.deleteMany(userEmailQuery);
+
+    //   delete user
     const result = await usersCollections.deleteOne(query);
 
     if (!result.acknowledged) {
@@ -55,4 +54,4 @@ const deleteUserControler = async (req, res) => {
   }
 };
 
-module.exports = deleteUserControler;
+module.exports = deleteMyProfileControler;

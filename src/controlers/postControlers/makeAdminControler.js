@@ -81,7 +81,6 @@ const makeAdminControler = async (req, res) => {
       });
     }
   } catch (error) {
-    console.log(error);
     res.send({
       success: false,
       message: "Server error for make admin.Please Try agin later.",

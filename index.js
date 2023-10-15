@@ -66,13 +66,15 @@ const makeAdmin = require("./src/router/postRouters/makeAdminRouter");
 
 /****************************** delete routers path  **************************/
 
-const deleteUser = require("./src/router/deleteRouters/deleteUserRouter");
+const deleteMyProfile = require("./src/router/deleteRouters/deleteMyProfileRouter");
 
 const deleteJobApplication = require("./src/router/deleteRouters/deleteJobApplicationRouter");
 
 const deleteMyBlog = require("./src/router/deleteRouters/deleteMyBlogRouter");
 
 const deleteMyJobPost = require("./src/router/deleteRouters/deleteMyJobPostRouter");
+
+const deleteUserByAdmin = require("./src/router/deleteRouters/deleteUserRouter");
 
 /************************** get routers  ************************/
 
@@ -124,7 +126,7 @@ app.use(makeAdmin);
 
 /******************************* delete routes   **********************/
 
-app.use(deleteUser);
+app.use(deleteMyProfile);
 
 app.use(deleteJobApplication);
 
@@ -132,7 +134,7 @@ app.use(deleteMyBlog);
 
 app.use(deleteMyJobPost);
 
-
+app.use(deleteUserByAdmin);
 
 app.listen(PORT, () => {
   console.log("server is running");
