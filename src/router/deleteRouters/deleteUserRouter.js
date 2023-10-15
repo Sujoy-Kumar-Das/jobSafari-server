@@ -1,7 +1,6 @@
 const express = require("express");
 const deleteUserControler = require("../../controlers/deleteControler/deleteUserControler");
 const verifyJWT = require("../../middleWare/verifyJWT");
-const isAdmin = require("../../middleWare/isAdmin");
 const router = express.Router();
-router.delete("/delete-user/:id", verifyJWT, isAdmin, deleteUserControler);
+router.delete("/delete-user/:id", deleteUserControler);
 module.exports = router;
